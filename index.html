@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="circle"></div>
+            <span>Chargement..</span>
+        </div>
+    <style>
+
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+            background: black;
+        }
+        .container{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        span{
+            color: #ffffff;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 200px;
+            animation: text 3s ease-in-out infinite;
+        }
+        
+        .circle{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 50%;
+        }
+        .circle::before{
+            position: absolute;
+            content: '';
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            left: 0;
+            top: 0;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            animation: circle 2s linear infinite;
+        }
+        @keyframes circle {
+            0%{
+            transform: rotate(0deg);
+            box-shadow:1px 5px 2px #fdfd10;
+        }
+            30%{
+            transform: rotate(180deg);
+            box-shadow:1px 5px 2px #ff20b1;
+        }
+            60%{
+            transform: rotate(180deg);
+            box-shadow:1px 5px 2px #1dfd16;
+        }
+            100%{
+            transform: rotate(360deg);
+            box-shadow:1px 5px 2px #1566d7;
+        }}
+
+        @keyframes text {
+            50%{color: black;}
+        }
+    </style>
+    </body>
+</html>
