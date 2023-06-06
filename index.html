@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
-    </head>
-    <body>
-        <div class="container">
-            <div class="circle"></div>
-            <span>Chargement..</span>
-        </div>
-    <style>
 
-        body{
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="circle"></div>
+        <span>Chargement..</span>
+        <div class="progress-bar"></div>
+    </div>
+    <style>
+        body {
             margin: 0;
             padding: 0;
             font-family: monospace;
             background: black;
         }
-        .container{
+
+        .container {
             display: flex;
+            flex-direction: column;
             text-align: center;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
 
-        span{
+        span {
             color: #ffffff;
             font-size: 20px;
             text-transform: uppercase;
@@ -35,14 +39,15 @@
             line-height: 200px;
             animation: text 3s ease-in-out infinite;
         }
-        
-        .circle{
-            position: absolute;
+
+        .circle {
+            position: relative;
             width: 200px;
             height: 200px;
             border: 50%;
         }
-        .circle::before{
+
+        .circle::before {
             position: absolute;
             content: '';
             height: 100%;
@@ -53,27 +58,62 @@
             box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
             animation: circle 2s linear infinite;
         }
+
+        .progress-bar {
+            width: 200px;
+            height: 10px;
+            background-color: #ffffff;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 100%;
+            background-color: #1566d7;
+            animation: progress 3s linear infinite;
+        }
+
         @keyframes circle {
-            0%{
-            transform: rotate(0deg);
-            box-shadow:1px 5px 2px #fdfd10;
+            0% {
+                transform: rotate(0deg);
+                box-shadow: 1px 5px 2px #fdfd10;
+            }
+
+            30% {
+                transform: rotate(180deg);
+                box-shadow: 1px 5px 2px #ff20b1;
+            }
+
+            60% {
+                transform: rotate(180deg);
+                box-shadow: 1px 5px 2px #1dfd16;
+            }
+
+            100% {
+                transform: rotate(360deg);
+                box-shadow: 1px 5px 2px #1566d7;
+            }
         }
-            30%{
-            transform: rotate(180deg);
-            box-shadow:1px 5px 2px #ff20b1;
-        }
-            60%{
-            transform: rotate(180deg);
-            box-shadow:1px 5px 2px #1dfd16;
-        }
-            100%{
-            transform: rotate(360deg);
-            box-shadow:1px 5px 2px #1566d7;
-        }}
 
         @keyframes text {
-            50%{color: black;}
+            50% {
+                color: black;
+            }
+        }
+
+        @keyframes progress {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
         }
     </style>
-    </body>
+</body>
+
 </html>
