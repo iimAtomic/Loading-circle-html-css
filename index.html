@@ -12,7 +12,6 @@
     <div class="container">
         <div class="circle"></div>
         <span>Chargement..</span>
-        <div class="progress-bar"></div>
     </div>
     <style>
         body {
@@ -59,22 +58,8 @@
             animation: circle 2s linear infinite;
         }
 
-        .progress-bar {
-            width: 200px;
-            height: 10px;
-            background-color: #ffffff;
-            margin-top: 20px;
-            overflow: hidden;
-        }
-
-        .progress-bar::after {
-            content: "";
-            display: block;
-            width: 0;
-            height: 100%;
-            background-color: #1566d7;
-            animation: progress 3s linear infinite;
-        }
+    
+        
 
         @keyframes circle {
             0% {
